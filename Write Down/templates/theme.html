@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write Down!- Setting</title>
+    <style>
+        .header{
+            display: flex;
+        }
+        .header_links {
+            float: right;
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+            margin-left: 78%;
+            border: 2px solid black;
+            padding: 5px;
+            width: 150px;
+        }
+        body {
+            background-color: {{theme_colour}};
+        }
+
+        form{
+            text-align: center;
+        }
+        .form-control{
+            width:300px;
+            height:50px;
+            font-size:16px;
+        }
+        .btn{
+            margin-top: 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Change Theme</h1>
+        <div class="header_links">
+            <a class="nav-link" href="/home">Home</a>
+            <a class="nav-link" href="/setting">Setting</a>
+            <a class="nav-link" href="/logout">Log Out</a>
+        </div>
+    </div>
+
+    <hr style= "border-color:#000000;">
+    <form action="/theme" method="post">
+
+        <div>
+            <select style= "width: 90px; height: 30px"name = "colour" id="colour">
+                <option value = "Color" disabled selected>Color</option>
+                <option value = "blue">Blue</option>
+                <option value = "green">Green</option>
+                <option value = "purple">Purple</option>
+                <option value = "pink">Pink</option>
+                <option value = "orange">Orange</option>
+                <option value = "yellow">Yellow</option>
+                <option value = "grey">Grey</option>
+            </select>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Change Theme</button>
+        <p style="color: {{ message_color }};">{{ message }}</p>
+    </form>

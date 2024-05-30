@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write Down!</title>
+    <style>
+        body {
+             /* Background image taken from https://www.eggradients.com/gradient/cloud-tech*/
+            background-image: url('/static/background.JPG');
+            background-size: cover;
+            margin-left: 150px;
+            margin-top: 300px;
+        }
+
+        .divider{
+            width: 1px;
+            height: 100%;
+            background-color: black;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 70%;
+        }
+
+        .login-box{
+            background-color: #ffffff;
+            border-radius: 20px;
+            border: 2px solid #333;
+            padding: 20px;
+            margin-right: 25px;
+            width :45%;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class= "container">
+    <div>
+            <b style= "font-size: 60px">Write Down</b>
+            <p style="font-size: 20px">Deadline to meet? Write Down!</p>
+            <p style="font-size: 20px">Schedule a meeting? Write Down!</p>
+            <p style="font-size: 20px">Hair appointment? Write Down!</p>
+            <p style= "width: 35%" >
+                Introducing "Write Down", your ultimate task planner. Write Down allows you to note down tasks that
+                you need to do, enabling you to see an overview of all the task for the day. Working similarly to
+                a calendar, u can plan your schedule in advance. This allows you to see your urgent tasks, and plan
+                your days and weeks accordingly.
+            </p>
+        </div>
+        {% block main %}
+        {% endblock %}
+    </div>
+    <div class = "divider"></div>
+    <p style="margin-top: 120px">
+        <img src="https://cdn-icons-png.flaticon.com/512/740/740997.png" alt="Clock Logo" width="30" height="30">
+        <span style="font-size: 25px">Deadline Reminder</span>
+        <img style="margin-left: 125px" src="https://cdn-icons-png.flaticon.com/512/2618/2618312.png" alt="Check Box Logo" width="30" height="30">
+        <span style="font-size: 25px">Visual Progress Tracking</span>
+        <img style="margin-left: 125px" src="https://cdn-icons-png.flaticon.com/512/2715/2715319.png" alt="Checklist Logo" width="30" height="30">
+        <span style="font-size: 25px">Task Management</span>
+    </p>
+
+    <p style="margin-top: 30px">
+        <span style= "display: inline-block; width: 15%">Ensures you stay on track with your task and never missing your important deadlines or appointments. </span>
+        <span style= "margin-left: 105px; display: inline-block; width: 15%">Allows you to visually see the remaining tasks on hand by checking off your completed tasks</span>
+        <span style= "margin-left: 125px; display: inline-block; width: 15%">Organise your tasks, ranking them with colours to easily identify those tasks with higher importance</span>
+    </p>
+</body>
+</html>

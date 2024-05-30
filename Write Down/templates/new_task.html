@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write Down!- Home</title>
+    <style>
+        .header{
+            display: flex;
+        }
+        .header_links {
+            float: right;
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+            margin-left: 75%;
+            border: 2px solid black;
+            padding: 5px;
+            width: 150px;
+        }
+        body {
+            background-color: {{theme_colour}};
+        }
+        form{
+            margin-left: 50px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>{{name}}'s To Do List</h1>
+        <div class="header_links">
+            <a class="nav-link" href="/home">Home</a>
+            <a class="nav-link" href="/logout">Log Out</a>
+        </div>
+    </div>
+
+    <hr style= "border-color:#000000;">
+
+    <form action= "/new_task" method= "post">
+        <h2>New Task</h2>
+
+        <p>Title:</p>
+        <div class="mb-3">
+            <input style= "width: 200px; height: 30px" autocomplete="off" autofocus class="form-control mx-auto w-auto" name="task_title" placeholder="Task" type="text">
+        </div>
+
+        <p>Deadline:</p>
+        <div class="mb-3">
+            <input style= "width: 150px; height: 30px"autocomplete="off" autofocus class="form-control mx-auto w-auto" name="deadline_date" type="date">
+            <input style= "width: 150px; height: 30px"autocomplete="off" autofocus class="form-control mx-auto w-auto" name="deadline_time"  type="time">
+        </div>
+
+        <p>Description (optional):</p>
+
+            <textarea style= "width: 50vw; height: 20vh; text-align:top" autocomplete="off" autofocus class="form-control mx-auto w-auto" name="description" placeholder="Description" type="text"></textarea>
+
+
+        <p>Importance Level:</p>
+        <div>
+            <select style= "width: 150px; height: 30px" name = "level">
+                <option value = "importance_level" disabled selected>Importance Level</option>
+                <option value = "very_important">Very Important</option>
+                <option value = "important">Important</option>
+                <option value = "not_important">Not Important</option>
+            </select>
+        </div>
+        <button style="margin-top: 20px" class="btn btn-primary" type="submit">Add Task</button>
+    </form>
+    <p style="margin-left: 50px; color: {{ message_color }};">{{ message }}</p>
+</body>
+</html>

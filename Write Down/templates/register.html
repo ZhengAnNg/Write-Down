@@ -1,0 +1,32 @@
+{% extends "main.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <div class= "login-box">
+        <h2>Register New Account</h2>
+        <form action="/register" method="post">
+            <div>
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="username" placeholder="Username" type="text">
+            </div>
+
+            <div style="margin-top:10px">
+                <input class="form-control mx-auto w-auto" name="password" placeholder="Password" type="password">
+            </div>
+
+            <div style="margin-top:10px">
+                <input class="form-control mx-auto w-auto" name="confirmation" placeholder="Re-enter Password" type="password">
+            </div>
+
+            <button style="margin-top:20px" class="btn btn-primary" type="submit">Create Account</button>
+        </form>
+
+        <p style="color: {{ message_color }};">{{ message }}</p>
+
+        <div style="margin-top:20px">
+            <a href="/login">Already have an Account? Login Here</a>
+        </div>
+    </div>
+{% endblock %}

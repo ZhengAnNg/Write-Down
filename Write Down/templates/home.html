@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write Down!- Home</title>
+    <style>
+        .header{
+            display: flex;
+        }
+        .header_links {
+            float: right;
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+            margin-left: 75%;
+            border: 2px solid black;
+            padding: 5px;
+            width: 150px;
+        }
+        body {
+            background-color: {{theme_colour}};
+        }
+        .btn{
+            margin-top: 20px;
+            font-size: 25px;
+        }
+        .button-container{
+            text-align: center;
+        }
+        .task-level-very_important td{
+            background-color:#f25252;
+        }
+        .task-level-important td{
+            background-color:#f2c852;
+        }
+        .task-level-not_important td{
+            background-color:#6ff778;
+        }
+
+        .task-level-completed td{
+            background-color:#878787;
+            animation: none;
+        }
+
+        /*https://www.w3schools.com/css/css3_animations.asp Learnt the code for animation from this website*/
+        @keyframes flashing {
+            0% { background-color: #ffffff; }
+            50% { background-color: #ff0000; }
+            100% { background-color: #ffffff; }
+        }
+
+        .task-level-warning td{
+            animation: flashing 1s infinite;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>{{name}}'s To Do List</h1>
+        <div class="header_links">
+            <a class="nav-link" href="/setting">Setting</a>
+            <a class="nav-link" href="/logout">Log Out</a>
+        </div>
+    </div>
+
+    <hr style= "border-color:#000000;">
+
+    <table style= "margin-left: 10LH; margin-right: 10LH" class = "table table-striped">
+        <thead >
+            <tr>
+                <th style= "text-align:Left; Width:20LH"> Task Title </th>
+                <th style= "text-align:Left; Width:40LH"> Description </th>
+                <th style= "text-align:Left; Width:20LH"> Deadline </th>
+                <th style= "text-align:Left; Width:4LH"> </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for task in to_do %}
+                <tr class="task-level-{{ task.level }}">
+                    <td style= "text-align:Left; Width:20LH"> {{task.task_title}} </td>
+                    <td style= "text-align:Left; Width:40LH"> {{task.description}} </td>
+                    <td style= "text-align:Left; Width:20LH"> {{task.deadline_datetime}} </td>
+                    <td>
+                        <form action="/task/{{task.task_id}}/complete" method="post">
+                            <button type="submit">Completed</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="/task/{{task.task_id}}/delete" method="post">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <form action= "/new_task" method= "get">
+        <div class="button-container">
+            <button id="submit">Add Task</button>
+        </div>
+    </form>
+    <form action= "/refresh" method= "get">
+        <div class="button-container">
+            <button id="refresh">Refresh</button>
+        </div>
+    </form>
+</body>
+</html>
